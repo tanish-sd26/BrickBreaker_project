@@ -1,0 +1,151 @@
+
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#ff6b6b;
+  --muted:#94a3b8;
+}
+
+*{box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+html,body,#gameCanvas{height:100%;}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(180deg,#071028 0%, #071a2b 100%);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.app{
+  width:100%;
+  max-width:900px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
+  border-radius:12px;
+  padding:18px;
+  box-shadow:0 10px 30px rgba(2,6,23,0.6);
+  border:1px solid rgba(255,255,255,0.02);
+}
+
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+header h1{
+  font-size:20px;
+  letter-spacing:1px;
+}
+.info{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  font-size:14px;color:var(--muted);
+}
+main{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+
+canvas#gameCanvas{
+  width:100%;
+  height:480px;
+  background:linear-gradient(180deg,#071a2b 0%, #08304a 100%);
+  border-radius:8px;
+  box-shadow:inset 0 0 40px rgba(0,0,0,0.4);
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.controls{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  margin-top:8px;
+}
+.controls button{
+  padding:10px 14px;
+  border-radius:8px;
+  border:none;background:rgba(255,255,255,0.06);
+  color:white;cursor:pointer;
+  font-size:16px;
+  min-width:70px;
+}
+.controls .mobile-btn{
+  min-width:54px;
+  padding:10px 8px;
+  font-size:18px;
+}
+.controls button:active{
+  transform:translateY(1px)
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(0deg, rgba(2,6,23,0.6), rgba(2,6,23,0.6));border-radius:8px;
+}
+.overlay-box{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:26px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.03);
+  width:90%;
+  max-width:420px;
+  text-align:center;
+}
+.overlay-box h2{
+  margin-bottom:8px
+}
+.overlay-box p{
+  color:var(--muted);
+  margin-bottom:16px
+}
+.overlay-buttons{
+  display:flex;
+  gap:12px;
+  justify-content:center
+}
+.overlay-buttons button{
+  padding:10px 16px;
+  border-radius:8px;
+  border:none;
+  background:var(--accent);
+  cursor:pointer;
+  color:white;
+  font-weight:600
+}
+footer{
+  margin-top:12px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px
+}
+
+@media (max-width:600px){
+  canvas#gameCanvas{
+    height:360px;
+  }
+  .info{
+    font-size:12px
+  }
+  .controls{
+    gap:6px
+  }
+  .overlay-box{
+    padding:18px
+  }
+}

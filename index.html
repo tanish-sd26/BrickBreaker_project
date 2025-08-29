@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brick Breaker — Breakout Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Brick Breaker</h1>
+      <div class="info">
+        <div>Score: <span id="score">0</span></div>
+        <div>Lives: <span id="lives">3</span></div>
+        <div>Level: <span id="level">1</span></div>
+      </div>
+    </header>
+
+    <main>
+      <canvas id="gameCanvas"></canvas>
+
+      <div class="controls">
+        <button id="leftBtn" class="mobile-btn">◀</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="rightBtn" class="mobile-btn">▶</button>
+      </div>
+
+      <div class="overlay" id="overlay">
+        <div class="overlay-box" id="overlay-box">
+          <h2 id="overlay-title">Welcome</h2>
+          <p id="overlay-text">Press <strong>Start</strong> to play</p>
+          <div class="overlay-buttons">
+            <button id="startBtn">Start</button>
+            <button id="restartBtn">Restart</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <small>Built with HTML, CSS &amp; JavaScript — Demo game for portfolio</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
