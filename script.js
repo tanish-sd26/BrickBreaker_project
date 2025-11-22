@@ -22,7 +22,7 @@ const game = {
   paused: false,
   ballSpeed: 4,
   bricksRowCount: 4,
-  bricksColumnount: 8,
+  bricksColumnount: 6,
   paddle: null,
   ball: null,
   bricks: [],
