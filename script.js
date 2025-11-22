@@ -22,7 +22,7 @@ const game = {
   paused: false,
   ballSpeed: 4,
   bricksRowCount: 4,
-  bricksColumnCount: 6,
+  bricksColumnount: 8,
   paddle: null,
   ball: null,
   bricks: [],
@@ -96,7 +96,7 @@ function createBricks() {
   const padding = 8;
   const offsetTop = 50;
   const brickWidth = (canvas.width / devicePixelRatio - padding * cols - 60) / cols;
-  const brickHeight = 20;
+  const brickHeight = 40;
 
   for (let r = 0; r < rows; r++) {
     game.bricks[r] = [];
