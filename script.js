@@ -5,8 +5,8 @@ const ctx = canvas.getContext('2d');
 
 function resizeCanvas() {
   const rect = canvas.getBoundingClientRect();
-  canvas.width = Math.min(900, rect.width * devicePixelRatio);
-  canvas.height = Math.min(720, rect.height * devicePixelRatio);
+  canvas.width = rect.width * devicePixelRatio;
+  canvas.height = rect.height * devicePixelRatio;
 }
 resizeCanvas();
 window.addEventListener('resize', () => {
@@ -103,7 +103,14 @@ function createBricks() {
     for (let c = 0; c < cols; c++) {
       const brickX = 30 + c * (brickWidth + padding);
       const brickY = offsetTop + r * (brickHeight + padding);
-      game.bricks[r][c] = { x: brickX, y: brickY, w: brickWidth, h: brickHeight, broken: false, hits: 1 + Math.floor((r + c) / 6) };
+      game.bricks[r][c] = { 
+          x: brickX,
+          y: brickY,
+          w: brickWidth, 
+          h: brickHeight, 
+          broken: false, 
+          hits: 1 + Math.floor((r + c) / 6) 
+        };
     }
   }
 }
@@ -128,7 +135,7 @@ function initGame() {
   game.level = 1;
   game.ballSpeed = 4;
   game.bricksRowCount = 3;
-  game.bricksColumnCount = 6;
+  game.bricksColumnount = 6;
   game.paddle = new Paddle();
   game.ball = new Ball();
   createBricks();
@@ -270,7 +277,7 @@ function endGame(won) {
 function nextLevel() {
   game.level += 1;
 
-  if (game.bricksColumnCount < 10) game.bricksColumnCount += 0; 
+  if (game.bricksColumnount < 10) game.bricksColumnount += 0; 
   createBricks();
   game.ball.reset();
   game.paddle = new Paddle();

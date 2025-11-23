@@ -2,8 +2,8 @@ const CACHE_NAME = 'brick-breaker-v1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  './style.css',   // Check karna aapki file ka naam yahi hai na?
-  './script.js',   // Check karna aapki file ka naam yahi hai na?
+  './style.css',   
+  './script.js',  
   './manifest.json',
   './icon.png'
 ];
