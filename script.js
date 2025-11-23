@@ -5,10 +5,15 @@ const ctx = canvas.getContext('2d');
 
 function resizeCanvas() {
   const rect = canvas.getBoundingClientRect();
-  canvas.width = rect.width * devicePixelRatio;
-  canvas.height = rect.height * devicePixelRatio;
+  canvas.width = rect.width ;
+  canvas.height = rect.height ;
 }
 resizeCanvas();
+window.addEventListener('load', () => {
+  resizeCanvas();
+  game.onResize();
+});
+
 window.addEventListener('resize', () => {
   resizeCanvas();
   game.onResize();
@@ -46,8 +51,8 @@ class Paddle {
   constructor() {
     this.width = 120;
     this.height = 14;
-    this.x = (canvas.width / devicePixelRatio - this.width) / 2;
-    this.y = canvas.height / devicePixelRatio - this.height - 10;
+    this.x = (canvas.width - this.width) / 2;
+    this.y = canvas.height - this.height - 10;
     this.speed = 8;
   }
   draw() {
@@ -58,7 +63,7 @@ class Paddle {
     this.x += dir * this.speed;
 
     if (this.x < 0) this.x = 0;
-    if (this.x + this.width > canvas.width / devicePixelRatio) this.x = canvas.width / devicePixelRatio - this.width;
+    if (this.x + this.width > canvas.width ) this.x = canvas.width - this.width;
   }
 }
 
@@ -69,8 +74,8 @@ class Ball {
     this.reset();
   }
   reset() {
-    this.x = canvas.width / devicePixelRatio / 2;
-    this.y = canvas.height / devicePixelRatio - 60;
+    this.x = canvas.width  / 2;
+    this.y = canvas.height  - 60;
     this.dx = (Math.random() > 0.5 ? 1 : -1) * game.ballSpeed;
     this.dy = -game.ballSpeed;
   }
@@ -168,8 +173,8 @@ function draw() {
 function detectCollisions() {
   const ball = game.ball;
   const paddle = game.paddle;
-  const cw = canvas.width / devicePixelRatio;
-  const ch = canvas.height / devicePixelRatio;
+  const cw = canvas.width ;
+  const ch = canvas.height ;
 
   if (ball.x + ball.radius >= cw) { ball.x = cw - ball.radius; ball.dx *= -1; }
   if (ball.x - ball.radius <= 0) { ball.x = ball.radius; ball.dx *= -1; }
@@ -338,16 +343,16 @@ function movePaddleToPointer(e) {
   const x = (e.clientX - rect.left);
   game.paddle.x = x - game.paddle.width / 2;
   if (game.paddle.x < 0) game.paddle.x = 0;
-  if (game.paddle.x + game.paddle.width > canvas.width / devicePixelRatio) game.paddle.x = canvas.width / devicePixelRatio - game.paddle.width;
+  if (game.paddle.x + game.paddle.width > canvas.width) game.paddle.x = canvas.width - game.paddle.width;
 }
 
 game.onResize = function() {
   if (game.paddle) {
-    game.paddle.y = canvas.height / devicePixelRatio - game.paddle.height - 10;
-    if (game.paddle.x + game.paddle.width > canvas.width / devicePixelRatio) game.paddle.x = canvas.width / devicePixelRatio - game.paddle.width;
+    game.paddle.y = canvas.height  - game.paddle.height - 10;
+    if (game.paddle.x + game.paddle.width > canvas.width ) game.paddle.x = canvas.width  - game.paddle.width;
   }
   if (game.ball) {
-    if (game.ball.x > canvas.width / devicePixelRatio) game.ball.x = canvas.width / devicePixelRatio / 2;
+    if (game.ball.x > canvas.width ) game.ball.x = canvas.width / 2;
   }
 };
 
