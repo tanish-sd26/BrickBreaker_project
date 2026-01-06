@@ -359,5 +359,12 @@ game.onResize = function() {
 initGame();
 showOverlay('Welcome', 'Click Start or press Space to play');
 
-overlay.addEventListener('click', (e)=>{ if(e.target === overlay) return; });
-document.addEventListener('keydown',(e)=>{ if(e.key==='Enter' && overlay.style.display !== 'none'){ startGame(); }});
+overlay.addEventListener('click', (e)=>{ 
+  if(e.target === overlay) 
+    return; 
+
+});
+document.addEventListener('keydown',(e)=>{ 
+  if(e.key==='Enter' && overlay.style.display !== 'none')
+    { startGame(); }
+});
