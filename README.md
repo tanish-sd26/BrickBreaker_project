@@ -1,23 +1,42 @@
+# 🧱 Brick Breaker Game
 
-# Brick Breaker Game (Breakout Clone)
+## 🚀 Overview
+A classic Brick Breaker game built using JavaScript where players control a paddle to bounce a ball and break all bricks.
 
-This is a Brick Breaker (Breakout) style game built with **HTML5 Canvas**, **CSS**, and **Vanilla JavaScript**.
-It includes multiple levels, score, lives, pause/resume, keyboard and touch controls.
+## ✨ Features
+- Interactive paddle control
+- Ball collision detection
+- Dynamic brick layout
+- Score tracking system
+- Game over & restart functionality
 
-## How to run
+## 🛠 Tech Stack
+- HTML5 (Canvas)
+- CSS3
+- JavaScript (Game Logic)
 
-1. Open `index.html` in a modern browser (Chrome/Firefox/Edge).
-2. Use Left/Right arrow keys or drag on the canvas to move the paddle.
-3. On mobile, use the left/right buttons or touch the canvas to control the paddle.
-4. Press Start to begin the game. Clear bricks to progress levels.
+## 📸 Screenshots
+<img width="1125" height="913" alt="image" src="https://github.com/user-attachments/assets/1a77a7d8-09b3-49d8-a6c4-15a04a253fe3" /> 
 
-## Features
 
-- Multiple levels with increasing difficulty
-- Score and lives counter
-- Keyboard & touch controls (mobile friendly)
-- Polished UI and responsive canvas
-- Easily customizable (brick layout, levels, speeds)
+## 🔗 Live Demo
+https://brick-breaker-game-ruby-xi.vercel.app/
+
+## ⚙️ Installation
+1. Clone the repository
+2. Open `index.html` in browser
+
+## 🧠 What I Learned
+- Implementing collision detection in games
+- Managing game loops and animations
+- Handling user input with keyboard events
+- Structuring JavaScript for interactive applications
+
+## 🔮 Future Improvements
+- Add multiple difficulty levels
+- Sound effects and animations
+- Mobile touch controls
+- Leaderboard system
 
 ## Files
 - `index.html` — The main HTML file
