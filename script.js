@@ -373,11 +373,15 @@ function movePaddleToPointer(e) {
 
 game.onResize = function() {
   if (game.paddle) {
-    game.paddle.y = canvas.height  - game.paddle.height - 10;
-    if (game.paddle.x + game.paddle.width > canvas.width ) game.paddle.x = canvas.width  - game.paddle.width;
+    game.paddle.y = canvas.height - game.paddle.height - 10;
+    if (game.paddle.x + game.paddle.width > canvas.width) game.paddle.x = canvas.width - game.paddle.width;
+    if (game.paddle.x < 0) game.paddle.x = 0;
   }
   if (game.ball) {
-    if (game.ball.x > canvas.width ) game.ball.x = canvas.width / 2;
+    if (game.ball.x + game.ball.radius > canvas.width) game.ball.x = canvas.width - game.ball.radius;
+    if (game.ball.x - game.ball.radius < 0) game.ball.x = game.ball.radius;
+    if (game.ball.y + game.ball.radius > canvas.height) game.ball.y = canvas.height - game.ball.radius;
+    if (game.ball.y - game.ball.radius < 0) game.ball.y = game.ball.radius;
   }
 };
 
