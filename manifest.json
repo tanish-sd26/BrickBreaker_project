@@ -1,7 +1,7 @@
 {
   "name": "Brick Breaker",
   "short_name": "BrickGame",
-  "start_url": "./index.html",
+  "start_url": "./page.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#0095DD",
