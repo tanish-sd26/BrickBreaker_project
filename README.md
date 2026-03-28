@@ -16,7 +16,8 @@ A classic Brick Breaker game built using JavaScript where players control a padd
 - JavaScript (Game Logic)
 
 ## 📸 Screenshots
-<img width="1125" height="913" alt="image" src="https://github.com/user-attachments/assets/1a77a7d8-09b3-49d8-a6c4-15a04a253fe3" /> 
+<img width="1125" height="913" alt="image" src="https://github.com/user-attachments/assets/5a90c25d-9035-4617-a265-eaeb95979b10" />
+
 
 
 ## 🔗 Live Demo
