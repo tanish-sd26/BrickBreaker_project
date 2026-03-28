@@ -282,7 +282,7 @@ function endGame(won) {
 function nextLevel() {
   game.level += 1;
 
-  if (game.bricksColumnount < 10) game.bricksColumnount += 0; 
+  if (game.bricksColumnCount < 10) game.bricksColumnCount += 1;
   createBricks();
   game.ball.reset();
   game.paddle = new Paddle();
