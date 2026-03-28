@@ -27,7 +27,7 @@ const game = {
   paused: false,
   ballSpeed: 4,
   bricksRowCount: 4,
-  bricksColumnount: 6,
+  bricksColumnCount: 6,
   paddle: null,
   ball: null,
   bricks: [],
@@ -140,7 +140,7 @@ function initGame() {
   game.level = 1;
   game.ballSpeed = 4;
   game.bricksRowCount = 3;
-  game.bricksColumnount = 6;
+  game.bricksColumnCount = 6;
   game.paddle = new Paddle();
   game.ball = new Ball();
   createBricks();
