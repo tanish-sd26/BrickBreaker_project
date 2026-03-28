@@ -100,7 +100,7 @@ function createBricks() {
   const cols = game.bricksColumnCount;
   const padding = 8;
   const offsetTop = 50;
-  const brickWidth = (canvas.width / devicePixelRatio - padding * cols - 60) / cols;
+  const brickWidth = (canvas.width - padding * cols - 60) / cols;
   const brickHeight = 40;
 
   for (let r = 0; r < rows; r++) {
@@ -141,10 +141,13 @@ function initGame() {
   game.ballSpeed = 4;
   game.bricksRowCount = 3;
   game.bricksColumnCount = 6;
+  game.running = false;
+  game.paused = false;
   game.paddle = new Paddle();
   game.ball = new Ball();
   createBricks();
   updateUI();
+  pauseBtn.textContent = 'Pause';
   showOverlay('Ready', 'Press Start to play');
 }
 
@@ -263,6 +266,7 @@ function updateUI() {
 function startGame() {
   game.running = true;
   game.paused = false;
+  pauseBtn.textContent = 'Pause';
   overlay.style.display = 'none';
   gameLoop();
 }
@@ -297,6 +301,9 @@ function showOverlay(title, text) {
 }
 
 startBtn.addEventListener('click', () => {
+  if (overlayTitle.textContent === 'Game Over' || overlayTitle.textContent === 'You Win!') {
+    initGame();
+  }
   startGame();
 });
 restartBtn.addEventListener('click', () => {
@@ -304,17 +311,33 @@ restartBtn.addEventListener('click', () => {
   startGame();
 });
 pauseBtn.addEventListener('click', () => {
+  if (!game.running) return;
   game.paused = !game.paused;
   pauseBtn.textContent = game.paused ? 'Resume' : 'Pause';
-  if (!game.paused && game.running) gameLoop();
+  if (!game.paused) gameLoop();
 });
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') game.keys.left = true;
   if (e.key === 'ArrowRight') game.keys.right = true;
-  if (e.key === ' '){ 
-    game.running = !game.running;
-    if (game.running) gameLoop();
+  if (e.key === ' ' || e.key === 'Spacebar') {
+    e.preventDefault();
+    if (!game.running) {
+      if (overlay.style.display !== 'none' &&
+         (overlayTitle.textContent === 'Game Over' || overlayTitle.textContent === 'You Win!')) {
+        initGame();
+      }
+      startGame();
+    } else {
+      if (game.paused) {
+        game.paused = false;
+        pauseBtn.textContent = 'Pause';
+        gameLoop();
+      } else {
+        game.paused = true;
+        pauseBtn.textContent = 'Resume';
+      }
+    }
   }
 });
 document.addEventListener('keyup', (e) => {
@@ -326,6 +349,8 @@ leftBtn.addEventListener('touchstart', (e)=>{ e.preventDefault(); game.touchMove
 rightBtn.addEventListener('touchstart', (e)=>{ e.preventDefault(); game.touchMove = 1; });
 leftBtn.addEventListener('touchend', ()=>{ game.touchMove = 0; });
 rightBtn.addEventListener('touchend', ()=>{ game.touchMove = 0; });
+leftBtn.addEventListener('click', () => game.paddle.move(-1));
+rightBtn.addEventListener('click', () => game.paddle.move(1));
 
 let dragging = false;
 canvas.addEventListener('pointerdown', (e) => {
